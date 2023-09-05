@@ -1,0 +1,15 @@
+.btn-primary {
+    color: #fff;
+    background-color: #ff90bb!important;
+    border-color: #ff90bb!important;
+    box-shadow: 0 0.125rem 0.25rem 0 #fa8bb6a3!important;
+}
+
+a {
+    color: #ff90bb !important;
+}
+
+.bg-menu-theme .menu-inner > .menu-item.active > .menu-link {
+    color: #ff90bb !important;
+    background-color: rgba(105, 108, 255, 0.16) !important;
+}
