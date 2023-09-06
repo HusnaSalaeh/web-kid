@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 06, 2023 at 05:13 AM
+-- Generation Time: Sep 06, 2023 at 09:50 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -66,6 +66,7 @@ CREATE TABLE `tbl_parent` (
   `disease` varchar(255) NOT NULL,
   `childNo` varchar(10) NOT NULL,
   `relation` varchar(255) NOT NULL,
+  `telephone` varchar(255) NOT NULL,
   `dateSaveParent` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -73,9 +74,10 @@ CREATE TABLE `tbl_parent` (
 -- Dumping data for table `tbl_parent`
 --
 
-INSERT INTO `tbl_parent` (`parentID`, `firstName`, `lastName`, `gender`, `age`, `disease`, `childNo`, `relation`, `dateSaveParent`) VALUES
-(1, 'user1first', 'user1last', 'male', 68, 'ไม่มี', '3', 'พ่อ', '2023-09-06 03:12:39'),
-(2, 'user2first', 'user2last', 'female', 54, 'กระดูกเสื่อม', '2', 'แม่', '2023-09-06 03:12:16');
+INSERT INTO `tbl_parent` (`parentID`, `firstName`, `lastName`, `gender`, `age`, `disease`, `childNo`, `relation`, `telephone`, `dateSaveParent`) VALUES
+(1, 'user1first', 'user1last', 'male', 68, 'ไม่มี', '3', 'พ่อ', '', '2023-09-06 03:12:39'),
+(2, 'user2first', 'user2last', 'female', 54, 'กระดูกเสื่อม', '2', 'แม่', '', '2023-09-06 03:12:16'),
+(3, 'user3first', 'user3last', 'female', 25, 'ไม่มี', '5', 'แม่', '', '2023-09-06 12:48:45');
 
 -- --------------------------------------------------------
 
@@ -137,7 +139,7 @@ ALTER TABLE `tbl_child`
 -- AUTO_INCREMENT for table `tbl_parent`
 --
 ALTER TABLE `tbl_parent`
-  MODIFY `parentID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `parentID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

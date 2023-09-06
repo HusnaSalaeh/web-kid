@@ -22,17 +22,17 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+              <a href="index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">หน้าหลัก</div>
               </a>
             </li>
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="index.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-edit"></i>
                 <div data-i18n="Analytics">แก้ไขข้อมูลส่วนตัว</div>
               </a>
-            </li>
+            </li> -->
             <!-- Forms & Tables -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">ข้อมูลส่วนตัว</span></li>
             <!-- Tables -->
@@ -46,22 +46,28 @@
             <li class="menu-header small text-uppercase"><span class="menu-header-text">การประเมิน</span></li>
             <!-- Tables -->
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="assessment-list.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Tables">ทำแบบประเมิน</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="assessment-result.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Tables">ผลการประเมิน</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="assessment-result2.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Tables">ผลการประเมิน2</div>
               </a>
             </li>
             <!--  -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text"></span></li>
             <li class="menu-item">
               <a
-                href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
+                href="https://line.me/en/"
                 target="_blank"
                 class="menu-link"
               >
@@ -71,7 +77,7 @@
             </li>
             <li class="menu-item">
               <a
-                href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
+                href="../logout.php"
                 target="_blank"
                 class="menu-link"
               >
