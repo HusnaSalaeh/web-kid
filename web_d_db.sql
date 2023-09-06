@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 05, 2023 at 11:31 PM
+-- Generation Time: Sep 06, 2023 at 05:13 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -28,20 +28,28 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_child` (
-  `child_id` int(3) NOT NULL,
-  `firstname` int(11) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
-  `birth_day` date NOT NULL,
-  `age` varchar(255) NOT NULL,
+  `childID` int(3) NOT NULL,
+  `firstName` varchar(255) NOT NULL,
+  `lastName` varchar(255) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `birthdate` date NOT NULL,
+  `age` int(3) NOT NULL,
   `weight` varchar(255) NOT NULL,
   `height` varchar(10) NOT NULL,
-  `chronic_illness` varchar(10) NOT NULL,
-  `dev_disorder` varchar(255) NOT NULL,
-  `birth_weight` varchar(10) NOT NULL,
-  `birth_history` varchar(10) NOT NULL,
-  `current_address` varchar(255) NOT NULL,
+  `disease` varchar(10) NOT NULL COMMENT 'โรคประจำตัว',
+  `developmentalDisorder` varchar(255) NOT NULL,
+  `birthWeight` varchar(10) NOT NULL,
+  `birthHistory` varchar(10) NOT NULL,
+  `address` varchar(255) NOT NULL,
   `ref_parent_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tbl_child`
+--
+
+INSERT INTO `tbl_child` (`childID`, `firstName`, `lastName`, `gender`, `birthdate`, `age`, `weight`, `height`, `disease`, `developmentalDisorder`, `birthWeight`, `birthHistory`, `address`, `ref_parent_id`) VALUES
+(1, 'fchild1', 'lchild2', '', '2016-09-13', 15, '45', '159', 'มี', 'สมาธิสั้น', '20', 'มี', '1416 ต.', 1);
 
 -- --------------------------------------------------------
 
@@ -50,15 +58,24 @@ CREATE TABLE `tbl_child` (
 --
 
 CREATE TABLE `tbl_parent` (
-  `parent_id` int(3) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
+  `parentID` int(3) NOT NULL,
+  `firstName` varchar(255) NOT NULL,
+  `lastName` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
-  `chronic_illness` varchar(10) NOT NULL,
-  `number_child_sup` varchar(10) NOT NULL,
-  `status_with_child` varchar(10) NOT NULL,
-  `date_save_parent` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `age` int(3) NOT NULL,
+  `disease` varchar(255) NOT NULL,
+  `childNo` varchar(10) NOT NULL,
+  `relation` varchar(255) NOT NULL,
+  `dateSaveParent` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tbl_parent`
+--
+
+INSERT INTO `tbl_parent` (`parentID`, `firstName`, `lastName`, `gender`, `age`, `disease`, `childNo`, `relation`, `dateSaveParent`) VALUES
+(1, 'user1first', 'user1last', 'male', 68, 'ไม่มี', '3', 'พ่อ', '2023-09-06 03:12:39'),
+(2, 'user2first', 'user2last', 'female', 54, 'กระดูกเสื่อม', '2', 'แม่', '2023-09-06 03:12:16');
 
 -- --------------------------------------------------------
 
@@ -72,8 +89,17 @@ CREATE TABLE `tbl_user` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `user_level` varchar(10) NOT NULL,
+  `ref_user_level` int(3) NOT NULL,
   `date_save` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`user_id`, `username`, `email`, `password`, `user_level`, `ref_user_level`, `date_save`) VALUES
+(1, 'admin', 'admin@gmail.com', '7d7b2156b3b5071039a4ad4cabc2f53f', 'admin', 1, '2023-09-06 01:41:36'),
+(2, 'user1', 'user1@gmail.com', '7d7b2156b3b5071039a4ad4cabc2f53f', 'user', 2, '2023-09-06 01:41:36');
 
 --
 -- Indexes for dumped tables
@@ -83,13 +109,13 @@ CREATE TABLE `tbl_user` (
 -- Indexes for table `tbl_child`
 --
 ALTER TABLE `tbl_child`
-  ADD PRIMARY KEY (`child_id`);
+  ADD PRIMARY KEY (`childID`);
 
 --
 -- Indexes for table `tbl_parent`
 --
 ALTER TABLE `tbl_parent`
-  ADD PRIMARY KEY (`parent_id`);
+  ADD PRIMARY KEY (`parentID`);
 
 --
 -- Indexes for table `tbl_user`
@@ -105,19 +131,19 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_child`
 --
 ALTER TABLE `tbl_child`
-  MODIFY `child_id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `childID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_parent`
 --
 ALTER TABLE `tbl_parent`
-  MODIFY `parent_id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `parentID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
