@@ -20,7 +20,7 @@ include('../condb.php');
             <h5 class="pb-1 mb-4">ประเมินพัฒนาการ DSPM ตามช่วงอายุ</h5>
             <div class="row">
                 <div class="col-md-6 col-xl-4">
-                    <div lass="card bg-info text-white mb-3">
+                    <div class="card bg-info text-white mb-3">
                         <!-- <div class="card-header">ช่วงวัย</div> -->
                         <a href="1.php">
                             <div class="card-body">
